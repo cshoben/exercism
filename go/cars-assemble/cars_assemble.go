@@ -5,7 +5,8 @@ package cars
 func CalculateWorkingCarsPerHour(productionRate int, successRate float64) float64 {
 	//panic("CalculateWorkingCarsPerHour not implemented")
 	var cars float64
-	cars = float64(productionRate) * successRate
+	var percentRate = successRate/100
+	cars = float64(productionRate) * percentRate
 	return cars
 }
 
@@ -14,7 +15,9 @@ func CalculateWorkingCarsPerHour(productionRate int, successRate float64) float6
 func CalculateWorkingCarsPerMinute(productionRate int, successRate float64) int {
 	panic("CalculateWorkingCarsPerMinute not implemented")
 	var cars float64
-	return cars
+	var minRate = productionRate/60
+	cars = float64(minRate) * successRate
+	return int(cars)
 }
 
 // CalculateCost works out the cost of producing the given number of cars.

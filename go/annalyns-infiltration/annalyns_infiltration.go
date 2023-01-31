@@ -24,11 +24,17 @@ func CanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake bool) bool {
 
 // CanSignalPrisoner can be executed if the prisoner is awake and the archer is sleeping.
 func CanSignalPrisoner(archerIsAwake, prisonerIsAwake bool) bool {
-
+	var signal bool
+	if !(archerIsAwake) && prisonerIsAwake {
+		signal = true
+	} else {
+		signal = false
+	}
+	return signal
 }
 
 // CanFreePrisoner can be executed if the prisoner is awake and the other 2 characters are asleep
 // or if Annalyn's pet dog is with her and the archer is sleeping.
 func CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent bool) bool {
-	panic("Please implement the CanFreePrisoner() function")
+	var free bool
 }

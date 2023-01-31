@@ -4,21 +4,27 @@ package annalyn
 func CanFastAttack(knightIsAwake bool) bool {
 	var fast bool
 	if (knightIsAwake == true) {
-		fast = true
-	} else {
 		fast = false
+	} else {
+		fast = true
 	}
 	return fast
 }
 
 // CanSpy can be executed if at least one of the characters is awake.
 func CanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake bool) bool {
-	panic("Please implement the CanSpy() function")
+	var spy bool
+	if (knightIsAwake || archerIsAwake || prisonerIsAwake ) {
+		spy = true
+	} else {
+		spy = false
+	}
+	return spy
 }
 
 // CanSignalPrisoner can be executed if the prisoner is awake and the archer is sleeping.
 func CanSignalPrisoner(archerIsAwake, prisonerIsAwake bool) bool {
-	panic("Please implement the CanSignalPrisoner() function")
+
 }
 
 // CanFreePrisoner can be executed if the prisoner is awake and the other 2 characters are asleep

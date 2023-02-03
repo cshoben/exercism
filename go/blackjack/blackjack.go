@@ -31,5 +31,12 @@ func ParseCard(card string) int {
 // FirstTurn returns the decision for the first turn, given two cards of the
 // player and one card of the dealer.
 func FirstTurn(card1, card2, dealerCard string) string {
-	panic("Please implement the FirstTurn function")
+	var turn string
+	playerValue := ParseCard(card1)
+	switch {
+	case ParseCard(card1) == 11 && ParseCard(card2) == 11:
+		turn = "S"
+	case ParseCard(card1) + ParseCard(card2) == 21
+	}
+	return turn
 }

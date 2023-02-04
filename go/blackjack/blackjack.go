@@ -32,11 +32,21 @@ func ParseCard(card string) int {
 // player and one card of the dealer.
 func FirstTurn(card1, card2, dealerCard string) string {
 	var turn string
-	playerValue := ParseCard(card1)
+	var dealerReveal bool
+	playerValue := ParseCard(card1) + ParseCard(card2)
+	if ParseCard(dealerCard) == 10 || ParseCard(dealerCard) == 11 {
+		dealerReveal = true
+	}
+
 	switch {
 	case ParseCard(card1) == 11 && ParseCard(card2) == 11:
+		turn = "P"
+	case playerValue == 21 && dealerReveal == true:
 		turn = "S"
-	case ParseCard(card1) + ParseCard(card2) == 21
+	case playerValue == 21 && dealerReveal == false:
+		turn = "W"
+	case playerValue >=17 && playerValue <= 20:
+		turn = "S"
 	}
 	return turn
 }

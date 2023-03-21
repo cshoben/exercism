@@ -34,6 +34,7 @@ func FirstTurn(card1, card2, dealerCard string) string {
 	var turn string
 	var dealerReveal bool
 	playerValue := ParseCard(card1) + ParseCard(card2)
+	dealerValue := ParseCard(dealerCard)
 	if ParseCard(dealerCard) == 10 || ParseCard(dealerCard) == 11 {
 		dealerReveal = true
 	}
@@ -52,10 +53,10 @@ func FirstTurn(card1, card2, dealerCard string) string {
 	case playerValue >= 17 && playerValue <= 20:
 		turn = "S"
 	// if player cards sum between 12 to 16 and dealer card below 7, player Stands(S)
-	case playerValue >= 12 && playerValue <= 16:
+	case playerValue >= 12 && playerValue <= 16 && dealerValue < 7:
 		turn = "S"
 	// if player cards sum between 12 to 16 and dealer card at or above 7, player Hits(H)
-	case playerValue >= 12 && playerValue <= 16:
+	case playerValue >= 12 && playerValue <= 16 && dealerValue >= 7:
 		turn = "H"
 	// if player card sum 11 or lower, always hit(H)
 	case playerValue <= 11:

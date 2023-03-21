@@ -48,9 +48,18 @@ func FirstTurn(card1, card2, dealerCard string) string {
 	// if player has black jack but dealer DOES NOT have Ace, face card, or 10, player Wins(W)!
 	case playerValue == 21 && dealerReveal == false:
 		turn = "W"
-	// if player cards cume between 17 and 20, must Stand(S)
-	case playerValue >=17 && playerValue <= 20:
+	// if player cards sum between 17 and 20, must Stand(S)
+	case playerValue >= 17 && playerValue <= 20:
 		turn = "S"
+	// if player cards sum between 12 to 16 and dealer card below 7, player Stands(S)
+	case playerValue >= 12 && playerValue <= 16:
+		turn = "S"
+	// if player cards sum between 12 to 16 and dealer card at or above 7, player Hits(H)
+	case playerValue >= 12 && playerValue <= 16:
+		turn = "H"
+	// if player card sum 11 or lower, always hit(H)
+	case playerValue <= 11:
+		turn = "H"
 	}
 	return turn
 }

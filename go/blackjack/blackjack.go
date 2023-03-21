@@ -39,12 +39,16 @@ func FirstTurn(card1, card2, dealerCard string) string {
 	}
 
 	switch {
+	// if pair of aces, must always split(P) them
 	case ParseCard(card1) == 11 && ParseCard(card2) == 11:
 		turn = "P"
+	// if player has black jack but dealer has Ace, face card, or 10, player must Stand(S)
 	case playerValue == 21 && dealerReveal == true:
 		turn = "S"
+	// if player has black jack but dealer DOES NOT have Ace, face card, or 10, player Wins(W)!
 	case playerValue == 21 && dealerReveal == false:
 		turn = "W"
+	// if player cards cume between 17 and 20, must Stand(S)
 	case playerValue >=17 && playerValue <= 20:
 		turn = "S"
 	}

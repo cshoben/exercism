@@ -47,5 +47,18 @@ func Drive(car Car) Car {
 
 // CanFinish checks if a car is able to finish a certain track.
 func CanFinish(car Car, track Track) bool {
-	panic("Please implement the CanFinish function")
+	// drive the car while there is distance to drive.
+	// if car battery does not go down, then it can not finish track, return false
+	for track.distance > 0 {
+		batteryStart := car.battery
+		car = Drive(car)
+		batteryEnd := car.battery
+		if batteryStart == batteryEnd {
+			return false
+		}
+		track.distance = track.distance - car.speed
+	}
+
+	return true
+
 }
